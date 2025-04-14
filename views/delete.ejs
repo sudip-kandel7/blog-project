@@ -1,0 +1,11 @@
+<!-- delete.ejs -->
+<%- include("partials/header.ejs") %>
+<div class="delete">
+    <h2>Are you sure?</h2>
+    <form action="/delete/<%= index %>?_method=Delete" method="POST">
+        <button type="submit" name="confirm" value="yes">Yes</button>
+        <a href="/home"><button type="button">No</button></a>
+    </form>
+</div>
+<%- include("partials/footer.ejs") %>
+

@@ -1,0 +1,38 @@
+<!-- create.ejs -->
+<%- include("partials/header.ejs") %>
+<% if(locals.index){ %>
+<form class="create-form" action="/update/<%= index%>?_method=PATCH" method="post">
+        <p>Update your blog</p>
+        <hr>
+        
+        <label for="authorN">Author Name</label>
+        <input type="text" id="authorN" name="author" value="<%= blog.name %>" required>
+    
+        <label for="titleN">Blog Title</label>
+        <input type="text" id="titleN" name="title" value="<%= blog.title %>" required>
+    
+        <label for="blogN">Write your content:</label>
+        <textarea id="blogN" name="content" rows="5" required><%= blog.content %></textarea>
+    
+        <button type="submit">Update</button>
+    </form>
+<% }else{ %>
+    
+<form class="create-form" action="/submit" method="post">
+    <p>Write your blog</p>
+    <hr>
+    
+    <label for="authorN">Author Name</label>
+    <input type="text" id="authorN" name="author" required>
+
+    <label for="titleN">Blog Title</label>
+    <input type="text" id="titleN" name="title" required>
+
+    <label for="blogN">Write your content:</label>
+    <textarea id="blogN" name="content" rows="5" required></textarea>
+
+    <button type="submit">Submit</button>
+</form>
+<% } %>
+
+<%- include("partials/footer.ejs") %>

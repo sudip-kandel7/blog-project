@@ -1,0 +1,60 @@
+<!-- home.ejs -->
+<%- include("partials/header.ejs") %>
+<% if(locals.update){ %>
+  <h1 class="title"style>Blogs:</h1>
+<div class="blogs-container">
+    <% if (lists.length > 0) { %>
+      <% lists.forEach(function(list, index) { %>
+        <div class="blog">
+          <a href="/create/<%= index %>">
+            <img src="image/pen.png" alt="Edit">
+        </a>        
+          <h3 style="margin-top: -15px;"><%= list.title %></h3>
+          <p class="p"><%= list.content %></p>
+          <strong>- <%= list.name %></strong>
+        </div>
+      <% }) %>
+    <% } else { %>
+      <p class="p">No blogs available now.</p>
+    <% } %>
+  </div>
+<% }  else if(locals.delete){ %>
+  <h1 class="title"style>Blogs:</h1>
+  <div class="blogs-container">
+      <% if (lists.length > 0) { %>
+        <% lists.forEach(function(list, index) { %>
+          <div class="blog">
+            <a href="/delete/<%= index %>">
+              <img src="image/logo2.png" alt="delete">
+          </a>        
+            <h3 style="margin-top: -15px;"><%= list.title %></h3>
+            <p><%= list.content %></p>
+            <strong>- <%= list.name %></strong>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p class="p">No blogs available now.</p>
+      <% } %>
+    </div>
+<% } else { %>
+  <h1 class="title"style>Blogs:</h1>
+  <div class="blogs-container">
+      <% if (lists.length > 0) { %>
+        <% lists.forEach(function(list) { %>
+          <div class="blog">
+            <h3><%= list.title %></h3>
+            <p><%= list.content %></p>
+            <strong>- <%= list.name %></strong>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p class="p">No blogs available now.</p>
+      <% } %>
+    </div>
+<% } %>
+<%- include("partials/footer.ejs") %>
+
+
+
+
+
