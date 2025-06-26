@@ -4,7 +4,7 @@ import bodyParser from "body-parser";
 import methodOverride from "method-override";
 
 const app = express();
-const port = 3000;
+const PORT = 3000;
 
 let lists = [];
 
@@ -106,6 +106,6 @@ app.post("/submit", (req, res) => {
   res.redirect("/home");
 });
 
-app.listen(port, (req, res) => {
-  console.log(`This server is listening port ${port}`);
+app.listen(PORT, (req, res) => {
+  console.log(`This server is listening port ${PORT}`);
 });
