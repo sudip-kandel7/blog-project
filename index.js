@@ -4,7 +4,7 @@ import bodyParser from "body-parser";
 import methodOverride from "method-override";
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 let lists = [];
 
